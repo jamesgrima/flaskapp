@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ffad51a-9b0f-43d1-942d-ca7547d0c199" name="Changes" comment="initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/flaskapp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flaskapp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/venv/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -116,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682342829120</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="initial commit">
+      <created>1682346989331</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682346989331</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
