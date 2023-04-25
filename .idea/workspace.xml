@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ffad51a-9b0f-43d1-942d-ca7547d0c199" name="Changes" comment="update html">
+    <list default="true" id="5ffad51a-9b0f-43d1-942d-ca7547d0c199" name="Changes" comment="improve form look">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/venv/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/high.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/high.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/high.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/low.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/medium.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/templates/webform.html" beforeDir="false" afterPath="$PROJECT_DIR$/venv/templates/webform.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682414555017</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="improve form look">
+      <created>1682416872765</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682416872765</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +177,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="initial commit" />
     <MESSAGE value="update html" />
-    <option name="LAST_COMMIT_MESSAGE" value="update html" />
+    <MESSAGE value="improve form look" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve form look" />
   </component>
 </project>

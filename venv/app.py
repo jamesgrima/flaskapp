@@ -10,6 +10,8 @@ def bugpage():
         bug = request.form['name']
         description = request.form['description']
         filename = priority.lower() + '.json'
+        if priority == 'Select Priority':
+            filename = 'dlq.json'
         data = {'name': bug, 'description': description}
         with open(filename, 'a') as f:
             json.dump(data, f)
