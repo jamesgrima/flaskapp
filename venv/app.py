@@ -7,10 +7,10 @@ app = Flask(__name__)
 def bugpage():
     if request.method == 'POST':
         priority = request.form['priority']
-        bug = request.form['bug']
+        bug = request.form['name']
         description = request.form['description']
         filename = priority.lower() + '.json'
-        data = {'bug': bug, 'description': description}
+        data = {'name': bug, 'description': description}
         with open(filename, 'a') as f:
             json.dump(data, f)
             f.write('\n')
