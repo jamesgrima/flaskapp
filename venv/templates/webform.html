@@ -6,6 +6,9 @@
   <body>
     <h1>Bug Tracker Form</h1>
     <form method="post" action="/">
+      <label for="bug">Bug:</label>
+      <input type="text" name="bug" id="bug"><br><br>
+
       <label for="priority">Priority:</label>
       <select name="priority" id="priority">
         <option value="High">High</option>
@@ -13,8 +16,10 @@
         <option value="Low">Low</option>
       </select>
       <br><br>
-      <label for="bug">Bug:</label>
-      <input type="text" name="bug" id="bug"><br><br>
+
+      <label for="description">Description:</label>
+      <textarea name="description" id="description"></textarea><br><br>
+
       <input type="submit" value="Submit">
     </form>
   </body>
