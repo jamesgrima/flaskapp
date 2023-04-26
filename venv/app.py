@@ -16,7 +16,7 @@ def bugpage():
         if priority == 'High':
             print("High if")
             sendToQueue(data, "HighPriority")
-        elif priority == 'Medium' or 'Low':
+        elif priority == 'Medium' or priority == 'Low':
             print("Med/Low if")
             sendToQueue(data, 'MediumLowPriority')
         else:
