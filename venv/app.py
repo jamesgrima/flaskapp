@@ -27,5 +27,14 @@ def setUpSQSQueues():
         sqs.create_queue(QueueName=queName, Attributes={'DelaySeconds': '60'})
     return render_template("webform.html")
 
+@app.route('/destroyQueues')
+def destroyQueues():
+    # creates the boto3 client
+    sqs = boto3.client('sqs')
+    queueNames = ['HighPriority', 'MediumLowPriority', 'DLQ']
+    for queueName in queueNames:
+        qURl = sqs.get_queue_url(QueueName=queueName)['QueueUrl']
+        sqs.delete_queue(QueueUrl=qURl)
+
 if __name__ == '__main__':
     app.run()
