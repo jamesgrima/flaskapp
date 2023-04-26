@@ -14,7 +14,7 @@ def bugpage():
             priority = 'dlq'
         data = {'name': bug, 'priority': priority, 'description': description}
 
-        match data["priority"]:
+        match priority:
             case "High":
                 sendToQueue(payload, "HighPriority")
             case "Medium" | "Low":
