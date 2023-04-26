@@ -10,14 +10,35 @@ def bugpage():
         priority = request.form['priority']
         bug = request.form['name']
         description = request.form['description']
-        filename = priority.lower() + '.json'
         if priority == 'Select Priority':
-            filename = 'dlq.json'
-        data = {'name': bug, 'description': description}
-        with open(filename, 'a') as f:
-            json.dump(data, f)
-            f.write('\n')
+            priority = 'dlq'
+        data = {'name': bug, 'priority': priority, 'description': description}
+
+        match data["priority"]:
+            case "High":
+                sendToQueue(payload, "HighPriority")
+            case "Medium" | "Low":
+                sendToQueue(payload, "MediumLowPriority")
+            case _:
+                sendToQueue(payload, "DLQ")
+
     return render_template('webform.html')
+
+def sendToQueue(payload, sqsQueue):
+    # converts the python dict to a json
+    jsonPayload = json.dumps(payload)
+    # creates the boto3 client
+    sqs = boto3.client('sqs')
+    # gets the queue url
+    qURl = sqs.get_queue_url(QueueName=sqsQueue)['QueueUrl']
+    # sends the message
+    response = sqs.send_message(
+        QueueUrl=qURl,
+        DelaySeconds=10,
+        MessageBody=(
+            jsonPayload
+        )
+    )
 
 @app.route('/createQueues')
 def setUpSQSQueues():

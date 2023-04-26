@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ffad51a-9b0f-43d1-942d-ca7547d0c199" name="Changes" comment="add sqs queue creation" />
+    <list default="true" id="5ffad51a-9b0f-43d1-942d-ca7547d0c199" name="Changes" comment="add sqs queue deletion">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/app.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,7 +188,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682503022283</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add sqs queue deletion">
+      <created>1682503379643</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682503379643</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add sqs queue deletion">
+      <created>1682503669287</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682503669287</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,6 +224,7 @@
     <MESSAGE value="add dlq option" />
     <MESSAGE value="add requirements.txt" />
     <MESSAGE value="add sqs queue creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="add sqs queue creation" />
+    <MESSAGE value="add sqs queue deletion" />
+    <option name="LAST_COMMIT_MESSAGE" value="add sqs queue deletion" />
   </component>
 </project>
