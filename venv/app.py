@@ -35,6 +35,7 @@ def destroyQueues():
     for queueName in queueNames:
         qURl = sqs.get_queue_url(QueueName=queueName)['QueueUrl']
         sqs.delete_queue(QueueUrl=qURl)
+    return render_template("webform.html")
 
 if __name__ == '__main__':
     app.run()
