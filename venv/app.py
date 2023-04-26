@@ -14,10 +14,13 @@ def bugpage():
         data = {'name': bug, 'description': description}
 
         if priority == 'High':
+            print("High if")
             sendToQueue(data, "HighPriority")
         elif priority == 'Medium' or 'Low':
+            print("Med/Low if")
             sendToQueue(data, 'MediumLowPriority')
         else:
+            print("else")
             sendToQueue(data, 'DLQ')
 
         print(priority)
