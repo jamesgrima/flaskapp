@@ -25,7 +25,7 @@ def setUpSQSQueues():
     queNames = ['HighPriority', 'MediumLowPriority', 'DLQ']
     for queName in queNames:
         sqs.create_queue(QueueName=queName, Attributes={'DelaySeconds': '60'})
-    return render_template("index.html")
+    return render_template("webform.html")
 
 if __name__ == '__main__':
     app.run()
