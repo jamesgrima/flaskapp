@@ -18,6 +18,8 @@ def bugpage():
         #Send the data dict and priority to choose the correct queue
         decideQueue(data, priority)
 
+        message = 'Thank you for your submission'
+        return render_template('webform.html', message=message)
     return render_template('webform.html')
 
 #Decide on which queue the data needs to be sent to, based on priority
