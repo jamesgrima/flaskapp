@@ -15,10 +15,10 @@ def bugpage():
 
         if priority == 'High':
             sendToQueue(data, "HighPriority")
-        elif priority == "Medium" or "Low":
-            sendToQueue(data, "MediumLowPriority")
+        elif priority == 'Medium' or 'Low':
+            sendToQueue(data, 'MediumLowPriority')
         else:
-            sendToQueue(data, "DLQ")
+            sendToQueue(data, 'DLQ')
 
     return render_template('webform.html')
 
