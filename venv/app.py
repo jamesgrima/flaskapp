@@ -10,9 +10,8 @@ def bugpage():
         priority = request.form['priority']
         bug = request.form['name']
         description = request.form['description']
-        if priority == 'Select Priority':
-            priority = 'dlq'
-        data = {'name': bug, 'priority': priority, 'description': description}
+
+        data = {'name': bug, 'description': description}
 
         if priority == 'High':
             sendToQueue(data, "HighPriority")
