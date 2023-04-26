@@ -14,13 +14,12 @@ def bugpage():
             priority = 'dlq'
         data = {'name': bug, 'priority': priority, 'description': description}
 
-        match priority:
-            case "High":
-                sendToQueue(payload, "HighPriority")
-            case "Medium" | "Low":
-                sendToQueue(payload, "MediumLowPriority")
-            case _:
-                sendToQueue(payload, "DLQ")
+        if priority == 'High':
+            sendToQueue(data, "HighPriority")
+        elif priority == "Medium" | "Low":
+            sendToQueue(data, "MediumLowPriority")
+        else:
+            sendToQueue(data, "DLQ")
 
     return render_template('webform.html')
 
