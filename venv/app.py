@@ -20,6 +20,8 @@ def bugpage():
         else:
             sendToQueue(data, 'DLQ')
 
+        print(priority)
+
     return render_template('webform.html')
 
 def sendToQueue(payload, sqsQueue):
