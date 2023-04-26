@@ -7,29 +7,36 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def bugpage():
     if request.method == 'POST':
+        #Get the details from the webform
         priority = request.form['priority']
         bug = request.form['name']
         description = request.form['description']
 
+        #Store details in python dictionary
         data = {'name': bug, 'description': description}
 
-        if priority == 'High':
-            print("High if")
-            sendToQueue(data, "HighPriority")
-        elif priority == 'Medium' or priority == 'Low':
-            print("Med/Low if")
-            sendToQueue(data, 'MediumLowPriority')
-        else:
-            print("else")
-            sendToQueue(data, 'DLQ')
-
-        print(priority)
+        #Send the data dict and priority to choose the correct queue
+        decideQueue(data, priority)
 
     return render_template('webform.html')
 
-def sendToQueue(payload, sqsQueue):
+#Decide on which queue the data needs to be sent to, based on priority
+def decideQueue(data, priority):
+    if priority == 'High':
+        print("High if")
+        sendToQueue(data, "HighPriority")
+    elif priority == 'Medium' or priority == 'Low':
+        print("Med/Low if")
+        sendToQueue(data, 'MediumLowPriority')
+    else:
+        print("else")
+        sendToQueue(data, 'DLQ')
+
+    print(priority)
+
+def sendToQueue(data, sqsQueue):
     # converts the python dict to a json
-    jsonPayload = json.dumps(payload)
+    jsonData = json.dumps(data)
     # creates the boto3 client
     sqs = boto3.client('sqs')
     # gets the queue url
@@ -39,7 +46,7 @@ def sendToQueue(payload, sqsQueue):
         QueueUrl=qURl,
         DelaySeconds=10,
         MessageBody=(
-            jsonPayload
+            jsonData
         )
     )
 
