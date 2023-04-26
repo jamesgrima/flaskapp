@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ffad51a-9b0f-43d1-942d-ca7547d0c199" name="Changes" comment="add dlq option" />
+    <list default="true" id="5ffad51a-9b0f-43d1-942d-ca7547d0c199" name="Changes" comment="add requirements.txt">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +159,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682418867069</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add dlq option">
+      <created>1682419382189</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682419382189</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add requirements.txt">
+      <created>1682419439894</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682419439894</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,6 +193,7 @@
     <MESSAGE value="update html" />
     <MESSAGE value="improve form look" />
     <MESSAGE value="add dlq option" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dlq option" />
+    <MESSAGE value="add requirements.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="add requirements.txt" />
   </component>
 </project>

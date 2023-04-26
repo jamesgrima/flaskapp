@@ -1,5 +1,6 @@
 import json
 from flask import Flask, render_template, request
+import boto3
 
 app = Flask(__name__)
 
@@ -17,6 +18,14 @@ def bugpage():
             json.dump(data, f)
             f.write('\n')
     return render_template('webform.html')
+
+@app.route('/createQueues')
+def setUpSQSQueues():
+    sqs = boto3.client('sqs')
+    queNames = ['HighPriority', 'MediumLowPriority', 'DLQ']
+    for queName in queNames:
+        sqs.create_queue(QueueName=queName, Attributes={'DelaySeconds': '60'})
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run()
