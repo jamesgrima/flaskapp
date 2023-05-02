@@ -12,13 +12,15 @@ def bugpage():
         bug = request.form['name']
         description = request.form['description']
 
-        #Store details in python dictionary
+        #Store details in a dictionary
         data = {'name': bug, 'description': description}
 
         #Send the data dict and priority to choose the correct queue
         decideQueue(data, priority)
 
+        #Set the user feedback message
         message = 'Thank you for your submission'
+
         return render_template('webform.html', message=message)
     return render_template('webform.html')
 
