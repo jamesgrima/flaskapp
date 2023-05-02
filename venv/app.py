@@ -2,10 +2,11 @@ import json
 from flask import Flask, render_template, request
 import boto3
 
+#Creates the Flask app
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
-def bugpage():
+def bug_page():
     if request.method == 'POST':
         #Get the details from the webform
         priority = request.form['priority']
@@ -16,7 +17,7 @@ def bugpage():
         data = {'name': bug, 'description': description}
 
         #Send the data dict and priority to choose the correct queue
-        decideQueue(data, priority)
+        decide_queue(data, priority)
 
         #Set the user feedback message
         message = 'Thank you for your submission'
@@ -25,51 +26,50 @@ def bugpage():
     return render_template('webform.html')
 
 #Decide on which queue the data needs to be sent to, based on priority
-def decideQueue(data, priority):
+def decide_queue(data, priority):
     if priority == 'High':
-        print("High if")
-        sendToQueue(data, "HighPriority")
+        send_to_queue(data, "HighPriority")
     elif priority == 'Medium' or priority == 'Low':
-        print("Med/Low if")
-        sendToQueue(data, 'MediumLowPriority')
+        send_to_queue(data, 'MediumLowPriority')
     else:
-        print("else")
-        sendToQueue(data, 'DLQ')
+        send_to_queue(data, 'DLQ')
 
-    print(priority)
+#Send the data to given AWS SQS queue
+def send_to_queue(data, sqsQueue):
+    #Converts the python dictionary to a json
+    json_data = json.dumps(data)
 
-def sendToQueue(data, sqsQueue):
-    # converts the python dict to a json
-    jsonData = json.dumps(data)
-    # creates the boto3 client
+    #Creates the boto3 client
     sqs = boto3.client('sqs')
-    # gets the queue url
-    qURl = sqs.get_queue_url(QueueName=sqsQueue)['QueueUrl']
-    # sends the message
+
+    #Gets the queue url
+    queue_url = sqs.get_queue_url(QueueName=sqsQueue)['QueueUrl']
+
+    #Sends the message to the queue
     response = sqs.send_message(
-        QueueUrl=qURl,
+        QueueUrl=queue_url,
         DelaySeconds=10,
         MessageBody=(
-            jsonData
+            json_data
         )
     )
 
 @app.route('/createQueues')
-def setUpSQSQueues():
+def setup_sqs_queues():
     sqs = boto3.client('sqs')
-    queNames = ['HighPriority', 'MediumLowPriority', 'DLQ']
-    for queName in queNames:
-        sqs.create_queue(QueueName=queName, Attributes={'DelaySeconds': '60'})
+    queue_names = ['HighPriority', 'MediumLowPriority', 'DLQ']
+    for queue in queue_names:
+        sqs.create_queue(QueueName=queue, Attributes={'DelaySeconds': '60'})
     return render_template("webform.html")
 
 @app.route('/destroyQueues')
-def destroyQueues():
+def destroy_queues():
     # creates the boto3 client
     sqs = boto3.client('sqs')
-    queueNames = ['HighPriority', 'MediumLowPriority', 'DLQ']
-    for queueName in queueNames:
-        qURl = sqs.get_queue_url(QueueName=queueName)['QueueUrl']
-        sqs.delete_queue(QueueUrl=qURl)
+    queue_names = ['HighPriority', 'MediumLowPriority', 'DLQ']
+    for queue in queue_names:
+        q_url = sqs.get_queue_url(QueueName=queue)['QueueUrl']
+        sqs.delete_queue(QueueUrl=q_url)
     return render_template("webform.html")
 
 if __name__ == '__main__':
